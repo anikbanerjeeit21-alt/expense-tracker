@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/expense-tracker"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html",
+      "headers": {
+        "X-Frame-Options": "DENY",
+        "X-Content-Type-Options": "nosniff"
+      }
+    }
+  ],
+  "env": {
+    "API_URL": "https://expense-tracker-kimn.onrender.com/api",
+    "GOOGLE_CLIENT_ID": "@google-client-id"
+  }
+}
