@@ -1,25 +1,17 @@
-# Use OpenJDK 17 as base image
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jre-alpine
 
-# Set working directory inside container
 WORKDIR /app
 
-# Copy Maven wrapper and configuration files
 COPY mvnw .
 COPY .mvn .mvn
 COPY pom.xml .
 
-# Download Maven dependencies (faster builds)
 RUN ./mvnw dependency:go-offline
 
-# Copy source code
 COPY src ./src
 
-# Build the Spring Boot application
 RUN ./mvnw clean package -DskipTests
 
-# Expose port 8080 for the application
 EXPOSE 8080
 
-# Run the application when container starts
 CMD ["java", "-jar", "target/expense-tracker-backend-0.0.1-SNAPSHOT.jar"]
