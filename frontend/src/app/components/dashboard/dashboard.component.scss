@@ -1,0 +1,204 @@
+.dashboard-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  h1 {
+    margin: 0;
+    color: #333;
+  }
+
+  .month-selector {
+    min-width: 200px;
+  }
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .stat-icon {
+    font-size: 36px;
+    margin-right: 10px;
+    vertical-align: middle;
+
+    &.expense-icon {
+      color: #f44336;
+    }
+
+    &.investment-icon {
+      color: #4caf50;
+    }
+
+    &.total-icon {
+      color: #2196f3;
+    }
+  }
+
+  .stat-amount {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 15px 0;
+    color: #333;
+  }
+
+  .stat-period {
+    color: #666;
+    font-size: 14px;
+  }
+}
+
+.recent-expenses-card {
+  margin-top: 20px;
+}
+
+.expenses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-radius: 8px;
+  background: #f5f5f5;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: #eeeeee;
+  }
+}
+
+.expense-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.expense-category-icon {
+  font-size: 24px;
+  color: #666;
+}
+
+.expense-details {
+  flex: 1;
+
+  .expense-description {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 5px;
+  }
+
+  .expense-meta {
+    font-size: 14px;
+    color: #666;
+  }
+}
+
+.expense-amount {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .amount {
+    font-weight: bold;
+    font-size: 16px;
+
+    &.expense {
+      color: #f44336;
+    }
+
+    &.investment {
+      color: #4caf50;
+    }
+  }
+
+  .delete-btn {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  &:hover .delete-btn {
+    opacity: 1;
+  }
+}
+
+.no-expenses {
+  text-align: center;
+  padding: 50px;
+  color: #666;
+
+  .empty-icon {
+    font-size: 48px;
+    color: #ccc;
+    margin-bottom: 20px;
+  }
+
+  button {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 10px;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: stretch;
+
+    .month-selector {
+      width: 100%;
+    }
+  }
+
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .expense-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+
+    .expense-amount {
+      align-self: flex-end;
+    }
+  }
+}

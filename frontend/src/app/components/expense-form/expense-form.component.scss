@@ -1,0 +1,75 @@
+.expense-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: calc(100vh - 64px);
+  padding: 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.form-card {
+  max-width: 600px;
+  width: 100%;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.expense-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.form-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  margin-top: 20px;
+
+  button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 120px;
+  }
+}
+
+// Material Design overrides
+::ng-deep .mat-form-field-appearance-outline {
+  .mat-form-field-outline {
+    border-radius: 8px;
+  }
+}
+
+::ng-deep .mat-select-value,
+::ng-deep .mat-input-element {
+  font-size: 16px;
+}
+
+::ng-deep .mat-datepicker-toggle {
+  color: #667eea;
+}
+
+@media (max-width: 768px) {
+  .expense-form-container {
+    padding: 10px;
+  }
+
+  .form-card {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+
+    button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
